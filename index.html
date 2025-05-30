@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainBuster - Win ₹1000 Challenge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="blur-bg"></div>
+    <div class="container">
+        <!-- Start Screen -->
+        <div class="start-screen" id="startScreen">
+            <div class="header">
+                <div class="header-content">
+                    <h1>BrainBuster Challenge</h1>
+                    <p>Answer 10 questions in 100 seconds to win ₹1000!</p>
+                </div>
+            </div>
+            <div class="game-area">
+                <h2 style="text-align: center; margin-bottom: 20px; color: white;">💰 Entry Fee: ₹50</h2>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 4px solid var(--secondary); backdrop-filter: blur(5px);">
+                    <p style="font-size: 0.9rem; color: white; margin-bottom: 5px;">🏆 <strong>5,421 players</strong> tried this week</p>
+                    <p style="font-size: 0.9rem; color: white;">🎯 Only <strong>3 winners</strong> so far!</p>
+                </div>
+                <button class="btn" id="startBtn">Start Challenge</button>
+                <div style="margin-top: 30px;">
+                    <h3 style="font-size: 1rem; color: rgba(255,255,255,0.8); text-align: center; margin-bottom: 15px;">Recent Winners</h3>
+                    <div class="leaderboard">
+                        <div class="leaderboard-item">
+                            <span>Rahul K. (Delhi)</span>
+                            <span class="rank">₹1000</span>
+                        </div>
+                        <div class="leaderboard-item">
+                            <span>Priya M. (Mumbai)</span>
+                            <span class="rank">₹1000</span>
+                        </div>
+                        <div class="leaderboard-item">
+                            <span>Ankit S. (Bangalore)</span>
+                            <span class="rank">₹1000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Payment Screen -->
+        <div class="payment-screen hidden" id="paymentScreen">
+            <div class="header">
+                <div class="header-content">
+                    <h1>Pay Entry Fee</h1>
+                    <p>Complete payment to start the challenge</p>
+                </div>
+            </div>
+            <div class="game-area">
+                <div class="payment-methods">
+                    <div class="payment-option selected" id="upiOption">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/UPI-Logo-vector.svg" alt="UPI">
+                        <span style="color: white;">Pay via UPI</span>
+                    </div>
+                    <div class="payment-option" id="paytmOption">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Paytm_Logo_%28standalone%29.svg" alt="Paytm">
+                        <span style="color: white;">Paytm Wallet</span>
+                    </div>
+                </div>
+                <button class="btn" id="payBtn">Pay ₹50 and Start</button>
+                <button class="btn btn-secondary" id="backBtn1">Go Back</button>
+            </div>
+        </div>
+        
+        <!-- Quiz Screen -->
+        <div class="quiz-screen hidden" id="quizScreen">
+            <div class="header">
+                <div class="header-content">
+                    <h1>Question <span id="currentQuestion">1</span>/10</h1>
+                    <p>Win ₹1000 if you answer all correctly!</p>
+                </div>
+            </div>
+            <div class="game-area">
+                <div class="timer-container">
+                    <div class="timer"><i class="fas fa-clock"></i> <span id="timeLeft">100</span>s</div>
+                    <div class="question-count" style="color: white;">Prize: ₹1000</div>
+                </div>
+                <div class="question" id="questionText">Loading question...</div>
+                <div class="options" id="optionsContainer">
+                    <!-- Options will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Result Screen -->
+        <div class="result-screen hidden" id="resultScreen">
+            <div class="header">
+                <div class="header-content">
+                    <h1>Challenge Completed!</h1>
+                    <p>Here's your result</p>
+                </div>
+            </div>
+            <div class="game-area">
+                <div class="loser-banner" id="resultBanner">
+                    <h2>So Close! 😢</h2>
+                    <p>You answered <span id="finalScore">7</span>/10 correctly</p>
+                    <p>Try again to win ₹1000!</p>
+                </div>
+                <div style="text-align: center; margin: 20px 0; color: rgba(255,255,255,0.8);">
+                    <p><strong>Today's winner:</strong> Arjun M. (Kolkata)</p>
+                </div>
+                <button class="btn" id="playAgainBtn">Play Again (₹50)</button>
+                <button class="btn btn-secondary" id="shareBtn">Share Challenge</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Processing Overlay -->
+    <div class="payment-processing hidden" id="paymentProcessing">
+        <div style="text-align: center;">
+            <div class="loader"></div>
+            <div class="payment-status" id="paymentStatus">Processing payment...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
